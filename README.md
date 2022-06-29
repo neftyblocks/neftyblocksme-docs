@@ -10,11 +10,11 @@
 
 # NeftyBlocks market
 
-We at NeftyBlocks understand the importance of creating your own space. We want to make it easy for you to keep your community at your project where you have put in all your hard work. So we have created a marketplace for you to embed in your project and keep your user engaged with what matters most, your project!
+We at NeftyBlocks understand the importance of keeping your users engaged. We want to make it easy for you to keep your community of NFT gamers, collectors and enthusiast close to your project. So, we have created a marketplace for you to embed in your website and keep your users engaged with what matters most, your NFT project!
 
 #### What does this embed include?
 
--   ⚙️ Fully function marketplace (filters, cards)
+-   ⚙️ Fully functioning marketplace (filters, cards)
 -   🎨 [Customizable look](#-styling) (styling)
 -   💲 [Payment processing](#-payment-processing) (read more below)
 
@@ -178,7 +178,7 @@ either place this in your `style.css` css file or add a `<style> ... css here ..
 
 ## 💲 Payment processing
 
-While some projects have their developers, we can't expect everybody to have a login and a way to handle signing transactions. We have a payment processor that will be used to handle the payment process. this will be run on a custom domain [https://neftyblocks.me](https://neftyblocks.me) and will deal with login, signing, and getting the user back where they came from.
+As we do not expect everybody to have a login and a way to handle signing transactions, we provide a payment processor that will be used to handle the payment process. The payment processor runs on a custom domain [https://neftyblocks.me](https://neftyblocks.me) and will deal with login, signing, and getting the user back to the site from where they came.
 
 ## ❤️ Community & Support
 
