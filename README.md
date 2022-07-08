@@ -54,7 +54,7 @@ import '@neftyblocks/market';
 <neftyblocks-market collection="your-collection"> </neftyblocks-market>
 
 <script type="module">
-    import 'https://unpkg.com/@neftyblocks/market@0.4.3';
+    import 'https://unpkg.com/@neftyblocks/market@0.4.4';
 </script>
 ```
 
@@ -175,6 +175,69 @@ either place this in your `style.css` css file or add a `<style> ... css here ..
     --nefty-bg-image: rgba(255, 255, 255, 0.05);
 }
 ```
+
+### 🪄 Advanced Styling Options
+
+For more options we support the use of `::part` which will give you full controle to overwrite styling. [read more about ::part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part)
+
+To see what you can style look at the HTML in the console and look for the attribute `part="..."`
+
+```css
+component-name::part(part-name) {
+    /* override the styling */
+}
+```
+
+the following parts are available:
+
+-   component name: `neftyblocks-market`
+    -   part name:
+    -   `mobile-filter`
+    -   `market`
+    -   `pagination`
+    -   `pagination-btn`
+    -   `pagination-back`
+    -   `pagination-next`
+    -   `error`
+    -   `error-btn`
+-   component name: `neftyblocks-cards`
+    -   part name:
+    -   `group`
+    -   `card`
+    -   `header`
+    -   `mint`
+    -   `info`
+    -   `info-content`
+    -   `content-item`
+    -   `content-item-spacer`
+    -   `content-item-value`
+    -   `visual`
+    -   `image`
+    -   `video`
+    -   `shadow`
+    -   `collection`
+    -   `name`
+    -   `pricing`
+    -   `price`
+    -   `price-image`
+    -   `price-usd`
+    -   `footer`
+    -   `buy`
+-   component name: `neftyblocks-filters`
+    -   part name:
+    -   `filters`
+    -   `container`
+    -   `filter`
+    -   `filter-title`
+    -   `reset`
+    -   `filter-refresh`
+    -   `refresh`
+    -   `select`
+    -   if attributes part is the name`"attribute-name"`
+    -   `input`
+    -   `list`
+    -   `list-item`
+    -   `fields`
 
 ## 💲 Payment processing
 
