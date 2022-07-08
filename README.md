@@ -54,7 +54,7 @@ import '@neftyblocks/market';
 <neftyblocks-market collection="your-collection"> </neftyblocks-market>
 
 <script type="module">
-    import 'https://unpkg.com/@neftyblocks/market@0.4.4';
+    import 'https://unpkg.com/@neftyblocks/market@0.4.5';
 </script>
 ```
 
@@ -183,61 +183,64 @@ For more options we support the use of `::part` which will give you full control
 To see what you can style look at the HTML in the console and look for the attribute `part="..."`
 
 ```css
-component-name::part(part-name) {
+neftyblocks-market::part(part-name) {
     /* override the styling */
 }
 ```
 
-the following parts are available:
+the following parts are available
 
--   component name: `neftyblocks-market`
-    -   part name:
-    -   `mobile-filter`
-    -   `market`
-    -   `pagination`
-    -   `pagination-btn`
-    -   `pagination-back`
-    -   `pagination-next`
-    -   `error`
-    -   `error-btn`
--   component name: `neftyblocks-cards`
-    -   part name:
-    -   `group`
-    -   `card`
-    -   `header`
-    -   `mint`
-    -   `info`
-    -   `info-content`
-    -   `content-item`
-    -   `content-item-spacer`
-    -   `content-item-value`
-    -   `visual`
-    -   `image`
-    -   `video`
-    -   `shadow`
-    -   `collection`
-    -   `name`
-    -   `pricing`
-    -   `price`
-    -   `price-image`
-    -   `price-usd`
-    -   `footer`
-    -   `buy`
--   component name: `neftyblocks-filters`
-    -   part name:
-    -   `filters`
-    -   `container`
-    -   `filter`
-    -   `filter-title`
-    -   `reset`
-    -   `filter-refresh`
-    -   `refresh`
-    -   `select`
-    -   if attributes part is the name`"attribute-name"`
-    -   `input`
-    -   `list`
-    -   `list-item`
-    -   `fields`
+Main part:
+
+-   `mobile-filter`
+-   `loader-group`
+-   `loader-list`
+-   `market`
+-   `pagination`
+-   `pagination-btn`
+-   `pagination-back`
+-   `pagination-next`
+-   `error`
+-   `error-btn`
+
+Card part:
+
+-   `card`
+-   `card-group`
+-   `card-header`
+-   `card-mint`
+-   `card-info`
+-   `card-info-btn`
+-   `card-info-item`
+-   `card-info-item-spacer`
+-   `card-info-item-value`
+-   `card-visual`
+-   `card-image`
+-   `card-video`
+-   `card-shadow`
+-   `card-collection`
+-   `card-name`
+-   `card-pricing`
+-   `card-price`
+-   `card-price-image`
+-   `card-price-usd`
+-   `card-footer`
+-   `card-buy`
+
+Filter part:
+
+-   `filters`
+-   `container`
+-   `filter`
+-   `filter-title`
+-   `reset`
+-   `filter-refresh`
+-   `refresh`
+-   `select`
+-   `input`
+-   `list`
+-   `list-item`
+-   `fields`
 
 ## 💲 Payment processing
 
