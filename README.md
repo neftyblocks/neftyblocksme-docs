@@ -54,7 +54,7 @@ import '@neftyblocks/market';
 <neftyblocks-market collection="your-collection"> </neftyblocks-market>
 
 <script type="module">
-    import 'https://unpkg.com/@neftyblocks/market@0.4.5';
+    import 'https://unpkg.com/@neftyblocks/market@0.4.7';
 </script>
 ```
 
@@ -195,6 +195,9 @@ Main part:
 -   `mobile-filter`
 -   `loader-group`
 -   `loader-list`
+-   `loader-cards`
+-   `loader-cards-inner`
+-   `loader-filters`
 -   `market`
 -   `pagination`
 -   `pagination-btn`
