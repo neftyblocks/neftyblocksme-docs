@@ -54,7 +54,7 @@ import '@neftyblocks/market';
 <neftyblocks-market collection="your-collection"> </neftyblocks-market>
 
 <script type="module">
-    import 'https://unpkg.com/@neftyblocks/market@0.5.0';
+    import 'https://unpkg.com/@neftyblocks/market@0.5.1';
 </script>
 ```
 
