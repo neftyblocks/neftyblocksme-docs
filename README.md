@@ -210,6 +210,7 @@ Card part:
 
 -   `card`
 -   `card-group`
+-   `card-empty`
 -   `card-header`
 -   `card-mint`
 -   `card-info`
