@@ -54,7 +54,10 @@ import '@neftyblocks/market';
 <neftyblocks-market collection="your-collection"> </neftyblocks-market>
 
 <script type="module">
+    // for automatic updates of the market (can be very slow)
     import 'https://unpkg.com/@neftyblocks/market@latest';
+    // needs manual updating if new version is live (fastest)
+    import 'https://unpkg.com/@neftyblocks/market@0.6.2';
 </script>
 ```
 
