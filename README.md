@@ -57,7 +57,7 @@ import '@neftyblocks/market';
     // for automatic updates of the market (can be very slow)
     import 'https://unpkg.com/@neftyblocks/market@latest';
     // needs manual updating if new version is live (fastest)
-    import 'https://unpkg.com/@neftyblocks/market@0.6.2';
+    import 'https://unpkg.com/@neftyblocks/market@0.6.3';
 </script>
 ```
 
@@ -251,6 +251,11 @@ Filter part:
 -   `field`
 -   `field-input`
 -   `field-icon`
+
+Dynamic part:
+
+-   `market-section-filters-active` - will hide cards if filters are active (on mobile only)
+-   `market-pagination-filters-active` - will hide pagination if filters are active (on mobile only)
 
 ## 💲 Payment processing
 
