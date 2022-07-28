@@ -69,14 +69,15 @@ which looks as follows:
 
 Most attributes are optional except for `collection`
 
-| Attribute                   | Value                                                      | Default              | Description                                                                                                                                                                                              |
-| --------------------------- | ---------------------------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `collection` **(required)** | `your-collection-id`                                       | None                 | set your collection name so the API knows which collection to send to the embed                                                                                                                          |
-| `limit`                     | number between `1` and `100`                               | `50`                 | set a value on how the maximum amount of NFT's to show per page                                                                                                                                          |
-| `network`                   | [supported chains / networks](#supported-chains--networks) | `mainnet`            | `mainnet` is the default network you can set it to `testnet` if you want to try it out first.                                                                                                            |
-| `chain`                     | [supported chains / networks](#supported-chains--networks) | `wax`                | there is support for multiple chains, see [supported chains / networks](#supported-chains--networks) below.                                                                                              |
-| `callback`                  | None                                                       | None                 | the callback URL is optional and is a way for you to interact with a transaction that happened [see callback URL](#callback-URL), default behavior is to redirect the user back to the URL it came from. |
-| `endpoint`                  | None                                                       | `api.neftyblocks.me` | only useful for development, API is highly customized for it's purpose.                                                                                                                                  |
+| Attribute                   | Value                                                      | Default              | Description                                                                                                                                                                                                                   |
+| --------------------------- | ---------------------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `collection` **(required)** | `your-collection-id`                                       | None                 | set your collection name so the API knows which collection to send to the embed                                                                                                                                               |
+| `limit`                     | number between `1` and `100`                               | `50`                 | set a value on how the maximum amount of NFT's to show per page                                                                                                                                                               |
+| `network`                   | [supported chains / networks](#supported-chains--networks) | `mainnet`            | `mainnet` is the default network you can set it to `testnet` if you want to try it out first.                                                                                                                                 |
+| `chain`                     | [supported chains / networks](#supported-chains--networks) | `wax`                | there is support for multiple chains, see [supported chains / networks](#supported-chains--networks) below.                                                                                                                   |
+| `redirect`                  | None                                                       | None                 | the redirect URL is optional and is a way for you to interact with a transaction that happened [see redirect URL](#redirect-URL), default behavior is to redirect the user back to the URL it came from with no extra params. |
+| `endpoint`                  | None                                                       | `api.neftyblocks.me` | only useful for development, API is highly customized for it's purpose.                                                                                                                                                       |
+| `custom`                    | None                                                       | None                 | Used to customize the card quick information [See custom config](#custom-config)                                                                                                                                              |
 
 #### supported chains / networks
 
@@ -86,9 +87,9 @@ The following blockchains are supported by the embedded marketplace
 | ------------- | -------------------------- |
 | wax (default) | mainnet (default), testnet |
 
-#### callback URL
+#### redirect URL
 
-if a callback URL is placed as an attribute after the user has signed the transaction, the user will be redirected to the callback URL after the transaction has been completed. we will include a couple of attributes in the query string to help you with the process.
+if a redirect URL is placed as an attribute after the user has signed the transaction, the user will be redirected to the redirect URL after the transaction has been completed. we will include a couple of attributes in the query string to help you with the process.
 
 -   `tx`: the transaction hash
 -   `status`: the status of the transaction (`executed` or `failed`) this still needs to be validated as successfully executed
@@ -214,6 +215,7 @@ Card part:
 -   `card-header`
 -   `card-mint`
 -   `card-info`
+-   `card-info-loading`
 -   `card-info-btn`
 -   `card-info-item`
 -   `card-info-item-spacer`
@@ -253,6 +255,83 @@ Dynamic part:
 
 -   `market-section-filters-active` - will hide cards if filters are active (on mobile only)
 -   `market-pagination-filters-active` - will hide pagination if filters are active (on mobile only)
+
+## Custom config
+
+> **Note**
+> This is for advanced users and require basic knowledge on Javascript and API's.
+
+Custom config is used to customize the content you see if you click the "i" for more information about the sale.
+
+to use custom config you need to add a `config` object.
+this object needs to be `stringified` and passed in to the attribute called `custom`.
+
+> **Note**
+> All optional `keys` can be removed (so no `skip: false`, but just delete the line)
+> this will reduce the params length for the GET call and gives room for more options.
+
+```js
+// Example config with all options
+const config = {
+    // global smart contract being used to fill field data
+    contract: {
+        // key can be "sale_id", "template_id", "asset_id"
+        key: 'asset_id',
+        // the address of the contract
+        contract: 'custom.contract',
+        // the scope of the contract
+        scope: 'custom.contract',
+        // the table of the contract
+        table: 'yourtable',
+    },
+    // global content that will be display on every card
+    content: [
+        {
+            // What you want to content to be called (!mandatory)
+            name: 'Title',
+            // value is based on path in sales item see: https://aa.neftyblocks.com/docs/#/sales/get_atomicmarket_v1_sales__sale_id_
+            value: 'assets+0+name',
+        },
+        {
+            name: 'Health',
+            // symbol to append after the value (optional)
+            symbol: '%',
+            // use field to let the script know to use the smartcontract (no nested values supported)
+            field: 'health',
+            // if no value is found skip showing it (optional)
+            skip: true,
+        },
+    ],
+    // optional to set extra content per schema (all values will be appended to the global content)
+    // and follow the same rules as the global content and contract above
+    schemas: {
+        'schema name': {
+            contract: {
+                key: 'asset_id',
+                contract: 'custom.contract',
+                scope: 'custom.contract',
+                table: 'yourtable',
+            },
+            content: [
+                {
+                    name: 'rarity',
+                    value: 'assets+0+data+rarity',
+                    skip: true,
+                },
+                {
+                    name: 'Health',
+                    field: 'health',
+                    symbol: '%',
+                    skip: true,
+                },
+            ],
+        },
+    },
+};
+
+// use the way your framework provides dynamic attributes
+`<neftyblocks-market collection="yourCollection" custom=${JSON.stringify(config)}></neftyblocks-market>`;
+```
 
 ## 💲 Payment processing
 
